@@ -1,0 +1,57 @@
+<!-- Automate 1 - Continue with variables.htm -->
+<div style='width: 650px; margin-top: 0px;'>
+    <p style='margin-top: 0px;'>Let's continue working on our first automation.<br/>
+        If you are not already there, go to <a href='https://make.powerautomate.com/'>Power Automate</a>.</p>
+    <p>Navigate to Solutions in the left nav, click on your New Hire Onboarding solution.</p>
+    <p>Edit the flow: When a new employee onboarding input form is submitted.</p>
+    <p>In this section, fairly quick as we will only be creating variables to be used later.</p>
+    <ol>
+       <li>Below the last scope, let's Add a new step</li>
+       <li>Search for and click on: Initialize variable</li>
+       <li>Rename to: Initialize variable with password characters
+          <ol type='a'>
+             <li>Name: varPwdCharacters</li>
+             <li>Type: Array</li>
+             <li>Value - copy/input this formula into the expression section of the dynamic popup:<br/>
+               <br>
+               [ &quot;A&quot;, &quot;B&quot;, &quot;C&quot;, &quot;D&quot;, &quot;E&quot;, &quot;F&quot;, &quot;G&quot;, &quot;H&quot;, &quot;I&quot;, &quot;J&quot;, &quot;K&quot;, &quot;L&quot;, &quot;M&quot;, &quot;N&quot;, &quot;O&quot;, &quot;P&quot;, &quot;Q&quot;, &quot;R&quot;, &quot;S&quot;, &quot;T&quot;, &quot;U&quot;, &quot;V&quot;, &quot;W&quot;, &quot;X&quot;, &quot;Y&quot;, &quot;Z&quot;, &quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;d&quot;, &quot;e&quot;, &quot;f&quot;, &quot;g&quot;, &quot;h&quot;, &quot;I&quot;, &quot;j&quot;, &quot;k&quot;, &quot;l&quot;, &quot;m&quot;, &quot;n&quot;, &quot;o&quot;, &quot;p&quot;, &quot;q&quot;, &quot;r&quot;, &quot;s&quot;, &quot;t&quot;, &quot;u&quot;, &quot;v&quot;, &quot;w&quot;, &quot;x&quot;, &quot;y&quot;, &quot;z&quot;, &quot;+&quot;, &quot;=&quot;, &quot;%&quot;, &quot;$&quot;, &quot;@&quot;, &quot;!&quot;, &quot;#&quot;, &quot;&&quot;, &quot;*&quot;, &quot;?&quot; ]
+               <br><br>
+            </li>
+             <li>Note that Automate will say it's an invalid expression, it isn't</li>
+             <li>Get rid of the error popup, then press Ok again and it will accept it</li>
+          </ol>
+       </li>
+       <li>Let's add another new step</li>
+       <li>Search for and click on: Initialize variable</li>
+       <li>Rename to: Initialize variable for generated password
+          <ol type='a'>
+             <li>Name: varPassword</li>
+             <li>Type: String</li>
+             <li>Value - copy/input this formula into the expression section of the dynamic popup:<br/>
+               <br>
+               concat(variables('varPwdCharacters')[rand(0,61)], variables('varPwdCharacters')[rand(0,61)], string(rand(0,9)), variables('varPwdCharacters')[rand(0,61)], variables('varPwdCharacters')[rand(0,61)], string(rand(0,9)), variables('varPwdCharacters')[rand(0,61)], variables('varPwdCharacters')[rand(0,61)], variables('varPwdCharacters')[rand(0,61)], string(rand(0,9)), variables('varPwdCharacters')[rand(0,61)])
+               <br><br>
+            </li>
+             <li>Note that Automate will say it's an invalid expression, it isn't</li>
+             <li>Get rid of the error popup, then press Ok again and it will accept it</li>
+          </ol>
+       </li>
+       <li>And add another new step</li>
+       <li>Search for and click on: Initialize variable</li>
+       <li>Rename to: Initialize variable for username
+          <ol type='a'>
+             <li>Name: varUserName</li>
+             <li>Type: String</li>
+             <li>We will adopt the User name standard of firstname.lastname@domain.com</li>
+             <li>Value - copy/input this formula into the expression section of the dynamic popup:<br/>
+               <br>
+               concat(triggerOutputs()?['body/FirstName'], '.', triggerOutputs()?['body/LastName'])
+               <br><br>
+            </li>
+             <li>Note that Automate will say it's an invalid expression, it isn't</li>
+             <li>Get rid of the error popup, then press Ok again and it will accept it</li>
+          </ol>
+       </li>
+       <li>Make sure you are saving your flow from time to time. Do it now!</li>
+    </ol>
+ </div>

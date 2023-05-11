@@ -1,0 +1,42 @@
+<!-- Automate 2 - New tracker item email.htm -->
+<div style='width: 650px; margin-top: 0px;'>
+    <p style='margin-top: 0px;'>Another automation, this time for our Onboarding Tracker.<br/>
+        If you are not already there, go to <a href='https://make.powerautomate.com/'>Power Automate</a>.</p>
+    <p>Navigate to Solutions in the left nav, click on your New Hire Onboarding solution.</p>
+    <ol>
+        <li>Click on New, Automation, Cloud flow, Automated
+            <ol type='a'>
+                <li>Name: Send email of onboarding task being assigned</li>
+                <li>Trigger: When an item is created (SharePoint)</li>
+                <li>Click on Create<br/></li>
+                <li>Site: /sites/HR</li>
+                <li>List: OnboardingTracker</li>
+            </ol>
+        </li>
+        <li>Rename the first step to: When an item is created in onboarding tracker list</li>
+        <li>Add a new step</li>
+        <li>Search for and select: Get My Profile (V2)</li>
+        <li>Add another new step</li>
+        <li>Search for and select: Send an Email (V2)
+            <ol type='a'>
+                <li>To: <span style='color: blue;'>{AssignedTo Email}</span> from dynamic content</li>
+                <li>Subject: New Hire Task assigned, due: <span style='color: blue;'>{DueDate}</span> (from dynamic content)</li>
+                <li>Body:<br/>
+                    <p style='margin: 0px 0px 0px 30px;'>Hello 
+                        <span style='color: blue;'>{AssignedTo DisplayName}</span>,
+                        <br/><br/>
+                        You need to: <span style='color: blue;'>{Title}</span> for <span style='color: blue;'>{NewHire}</span> by <span style='color: blue;'>{DueDate}</span>
+                        <br/><br/>
+                        Link to item: <span style='color: blue;'>{Link To Item}</span>
+                        <br/><br/>
+                        Please update status to Complete when task is done
+                        <br/><br/>
+                    </p>
+                </li>
+            </ol>
+        </li>
+        <li>This completes this automation.<br/>
+            Make sure to save then return to Automate home</li>
+    </ol>
+    <br/>
+     </div>

@@ -1,0 +1,101 @@
+<!-- Automate 1 - Onboarding form submitted.htm -->
+<div style='width: 650px; margin-top: 0px;'>
+    <p style='margin-top: 0px;'>Now to create some automations using our lists.</p>
+    <p>If not already there, go to <a href='https://make.powerautomate.com/'>Power Automate</a>.</p>
+    <ol>
+        <li>Make sure you are in your preferred environment, change as needed at the upper right</li>
+        <li>In the left nav, click on Solutions</li>
+        <li>Click on the solution you created earlier, i.e.: New Hire Onboarding</li>
+        <li>Click on New, Automation, Cloud flow, Automated
+            <ol type='a'>
+            <li>Name: When a new employee onboarding input form is submitted<br/></li>
+            <li>Trigger: When an item is created (SharePoint)</li>
+            <li>Press Create</li>
+            </ol>
+        </li>
+        <li>Once created, change the name of the trigger
+            <ol type='a'>
+            <li>When an item is created in onboarding input form</li>
+            <li>Site: /sites/HR</li>
+            <li>List: OnboardingInputForm</li>
+            </ol>
+        </li>
+        <li>Add a new step
+            <ol type='a'>
+            <li>Search for and select: Scope</li>
+            <li>Rename to: Scope - Create tasks for only hiring manager</li>
+            <li>Make sure the scope has been expanded</li>
+            </ol>
+        </li>
+        <li>Inside the scope, Add an action
+            <ol type='a'>
+            <li>Search for and select: Get Items (SharePoint)</li>
+            <li>Rename to: Get items from WFOnboardingTasks for only hiring manager</li>
+            <li>Site: /sites/HR</li>
+            <li>List: WFOnboardingTasks</li>
+            <li>Expand Show advanced options</li>
+            <li>Filter (make sure you have the single quotes around the dynamic values):<br/>
+                <p style='margin: 0px 0px 0px 30px;'>(OnboardType eq '<span style='color: blue;'>{OnboardType value}</span>' or OnboardType eq 'All') and (WorkLocation eq '<span style='color: blue;'>{WorkLocation value}</span>' or WorkLocation eq 'All') and LogicalOwner eq 'Hiring Manager'</p>
+                <p>If your flow errors on the OData query, look at the raw output and look for hidden new line characters</p>
+            </li>
+            </ol>
+        </li>
+        <li>Add a new action in the scope
+            <ol type='a'>
+            <li>Search for and select: Create item (SharePoint)</li>
+            <li>Rename to: Create task in onboarding tracker for hiring manager</li>
+            <li>Site: /sites/HR</li>
+            <li>List: OnboardingTracker</li>
+            <li>Title: <span style='color: blue;'>{Title}</span></li>
+            <li>Once you do that, it will wrap this task in an Apply to each</li>
+            <li>Rename the Apply to: Apply to each item for only hiring manager</li>
+            <li>Back to the fields</li>
+            <li>Expand the Create task in onboarding tracker for hiring manager</li>
+            <li>NewHire: <span style='color: blue;'>{FirstName} {LastName}</span> (make sure to add a space between)</li>
+            <li>StartDate: <span style='color: blue;'>{StartDate}</span></li>
+            <li>DaysToComplete: <span style='color: blue;'>{DaysToComplete}</span></li>
+            <li>AssignedTo Claims: <span style='color: blue;'>{HiringManager Claims}</span></li>
+            <li>Status Value: Leave as default of pending</li>
+            <li>LinkToOnboardingForm: <span style='color: blue;'>{Link to Item}</span> (This would be under the form section)</li>
+            <li>Collapse the scope</li>
+            </ol>
+        </li>
+        <li>Insert a new step prior to the previous scope, between trigger and scope
+            <ol type='a'>
+            <li>Search for and select: Scope</li>
+            <li>Rename to: Scope - Create tasks for all but hiring manager</li>
+            <li>Make sure the scope has been expanded</li>
+            <li>Inside the scope, Add an action</li>
+            <li>Search for and select: Get Items (SharePoint)</li>
+            <li>Rename to: Get items from WFOnboardingTasks for all but hiring manager</li>
+            <li>Site: /sites/HR</li>
+            <li>List: WFOnboardingTasks</li>
+            <li>Expand Show advanced options</li>
+            <li>Filter (make sure you have the single quotes around the dynamic values):<br/>
+                <p style='margin: 0px 0px 0px 30px;'>(OnboardType eq '<span style='color: blue;'>{OnboardType value}</span>' or OnboardType eq 'All') and (WorkLocation eq '<span style='color: blue;'>{WorkLocation value}</span>' or WorkLocation eq 'All') and LogicalOwner ne 'Hiring Manager'</p>
+                <p>If your flow errors on the OData query, look at the raw output and look for hidden new line characters</p>
+            </li>
+            </ol>
+        </li>
+        <li>Insert a new step in the scope
+            <ol type='a'>
+            <li>Search for and select: Create item (SharePoint)</li>
+            <li>Rename to: Create task in onboarding tracker for all but hiring manager</li>
+            <li>Site: /sites/HR</li>
+            <li>List: OnboardingTracker</li>
+            <li>Title: <span style='color: blue;'>{Title}</span></li>
+            <li>Once you do that, it will wrap this task in an Apply to each</li>
+            <li>Rename it to: Apply to each item for all but hiring manager</li>
+            <li>Back to the fields</li>
+            <li>NewHire: <span style='color: blue;'>{FirstName} {LastName}</span> (make sure to add a space between)</li>
+            <li>StartDate: <span style='color: blue;'>{StartDate}</span></li>
+            <li>DaysToComplete: <span style='color: blue;'>{DaysToComplete}</span></li>
+            <li>AssignedTo Claims: <span style='color: blue;'>{AssignedOwner Claims}</span></li>
+            <li>Status Value: Leave as default of pending</li>
+            <li>LinkToOnboardingForm: <span style='color: blue;'>{Link to Item}</span> (This would be under the form section)</li>
+            <li>Collapse the scope</li>
+            </ol>
+        </li>
+    </ol>
+    <br/>
+ </div>

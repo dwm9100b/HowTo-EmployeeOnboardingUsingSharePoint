@@ -1,0 +1,51 @@
+<!-- Automate 1 - Create and send email.htm -->
+<div style='width: 650px; margin-top: 0px;'>
+    <p style='margin-top: 0px;'>Let's continue working on our first automation.<br/>
+        If you are not already there, go to <a href='https://make.powerautomate.com/'>Power Automate</a>.</p>
+    <p>Navigate to Solutions in the left nav, click on your New Hire Onboarding solution.</p>
+    <p>Edit the flow: When a new employee onboarding input form is submitted.</p>
+    <p>In this section, we will be working on getting an email template and sending.</p>
+    <ol>
+       <li>After the Apply to each WFEmployeeOnboardingTasks step</li>
+       <li>Add a new step<br/></li>
+       <li>Search for and select: Get Items (SharePoint)</li>
+       <li>Rename this step: Get welcome email text from list</li>
+       <ol type='a'>
+          <li>Site: /sites/HR</li>
+          <li>List: WFOnboardingEmailTemplates</li>
+          <li>Click on Show advanced options</li>
+          <li>Filter: EmailType eq 'Welcome' and Active eq 1</li>
+          <li>Top Count: 1 (This will only return the first active welcome template, just in case)</li>
+       </ol>
+       <li>Now we are ready to send a welcome email</li>
+       <li>Add a new step</li>
+       <li>Search for and select: Send an email (V2)</li>
+       <li>Rename this step: Send welcome email (V2)
+          <ol type='a'>
+             <li>To: <span style='color: blue;'>{PersonalEmail}</span> in Dynamic content</li>
+             <li>Subject: <span style='color: blue;'>{SubjectLine}</span> in Dynamic content</li>
+             <li>After you add the SubjectLine, your send email will be wrapped by an Apply to each</li>
+             <li>Rename the Apply to each: Apply to each welcome email record</li>
+             <li>Re-expand your Send email step</li>
+             <li>Expand to show advanced options</li>
+             <li>CC: <span style='color: blue;'>{HiringManager email}</span> in Dynamic content</li>
+             <li>Body add your entry, like:
+                <ol type='i'>
+                   <li>Hello <span style='color: blue;'>{FirstName}</span>,</li>
+                   <li>FirstName would come from dynamic content</li>
+                   <li>Add a blank line</li>
+                   <li>Search for <span style='color: blue;'>{Body - Body content of the email}</span> in dynamic content, select this</li>
+                   <li>Couple new lines after body</li>
+                   <li>User name: <span style='color: blue;'>{varUserName}</span>@yourdomain.com</li>
+                   <li>New line</li>
+                   <li>Password: <span style='color: blue;'>{varPassword}</span></li>
+                   <li>New line</li>
+                   <li>Add any additional content as desired</li>
+                </ol>
+             </li>
+          </ol>
+       </li>
+       <li>This finishes our work on this first automation.<br/>
+        Make sure you save and then go back to Automate home</li>
+    </ol>
+ </div>

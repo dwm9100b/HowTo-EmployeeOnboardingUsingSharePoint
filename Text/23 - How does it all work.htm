@@ -1,0 +1,61 @@
+<!-- How does it all work.htm -->
+<div style='width: 650px; margin-top: 0px;'>
+       <p style='margin-top: 0px;'>So let's go thru how this is all supposed to work...</p>
+       <p>What are the different lists used for?</p>
+       <dl style='margin-left: 30px;'>
+          <dt>
+             <b>WFOnboardingTasks</b></dt>
+          <dd>Tasks get added to this list for internal staff members/groups to accomplish <br>
+            for onboarding a new employee. This is not for tasks to be assigned to the new hire.<br> 
+            Think of this as task templates for staff. Staff will be maintaining this list. <br>
+            Does not kick off any flow.</dd>
+          <br/>
+          <dt>
+             <b>WFEmployeeOnboardingTasks</b></dt>
+          <dd>As the name indicates, these will be the tasks that will be assigned to the new hire. <br>
+            Also think of these as task templates, only these are for the new hires. <br>
+            Staff will also be maintaining this list. Does not kick off any flows.<br/></dd>
+          <br/>
+          <dt>
+             <b>WFOnboardingEmailTemplates</b></dt>
+          <dd>This list holds email templates for different stages of the onboarding. <br>
+            Staff will be responsible for adding/updating the content of this list. <br>
+            No flows will be kicked off from this list.</dd>
+          <br/>
+          <dt>
+             <b>OnboardingInputForm</b></dt>
+          <dd>When a new employee is hired, an entry will be added to this list. <br>
+            Staff are responsible for adding/maintaining this list. <br>
+            So certain staff will need access to this list. <br>
+            Kicks off a flow when item is added to this list.</dd>
+          <br/>
+          <dt>
+             <b>OnboardingTracker</b></dt>
+          <dd>This list will be populated with tasks for internal staff once a new hire <br>
+            has been entered into the OnboardingInputForm. The list that feeds this one <br>
+            is WFOnboardingTasks. Staff will update their status of items in this list <br>
+            as they work them so staff will need access to this list. <br>
+            Flow will be kicked off as items are added.</dd>
+          <br/>
+          <dt>
+             <b>NewHireTasks</b></dt>
+          <dd>Tasks for the new hires will be assigned and added to this list once they've <br>
+            been added into the OnboardingInputForm list. <br>
+            Tasks will be sourced from the WFEmployeeOnboardingTasks list via a flow. <br>
+            No flows will be kicked off from this list.</dd>
+          <br/>
+       </dl>
+       <p>What is the order of operation?</p>
+       <ol>
+          <li>Populate WFOnboardingTasks with items that will be assigned to internal staff</li>
+          <li>Populate WFEmployeeOnboardingTasks with items that will be assigned to the new hire</li>
+          <li>Populate WFOnboardingEmailTemplates with a minimum of a 'Welcome' email template</li>
+          <li>New employee gets hired, make an entry into the OnboardingInputForm list</li>
+          <li>OnboardingTracker list will get populated with internal staff assignments</li>
+          <li>Emails will be sent to staff assigned to items being added to OnboardingTracker</li>
+          <li>NewHireTasks in the Employee site, will get populated with tasks for the new hire to complete</li>
+          <li>Emails will get sent to the new hire</li>
+          <li>Staff and new hire will update their assigned items as they are worked</li>
+       </ol>
+       <br/>
+ </div>
