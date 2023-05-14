@@ -18,16 +18,16 @@ Note this is a tablet app and not intended to be used on a phone
 
 To use:
 
-1. Click on the Green "Code" button above
-2. Click on Download ZIP
-3. Once downloaded, unzip it
+1. Click on the App folder above
+2. Right click on the zip file
+3. Click on Save link as...
+4. Note where you downloaded this zip
 5. From within your PowerApp studio
 6. Select Apps in the left nav
 7. From the top nav, select Import canvas app
-8. When asked, navigate to your unzipped file
-9. The PowerApp is in the App folder, select it
-10. Then follow the prompts
-11. Once imported, just run the app
+8. When asked, navigate to and select your unzipped app file
+9. Then follow the prompts
+10. Once imported, just run the app
 
 Enjoy,
 
