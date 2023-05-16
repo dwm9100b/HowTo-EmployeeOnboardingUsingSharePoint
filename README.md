@@ -1,3 +1,5 @@
+# Employee onboarding using SharePoint
+
 ![EmployeeOnboardingApp](https://user-images.githubusercontent.com/2302848/238684922-141c0751-9d4c-41b1-ae47-794347836268.png)
 <br><br><br>
 This Power App was created to allow someone to easily recreate a project. While videos are great, it is important for the one learning to be able to follow exact steps that only text can provide.
