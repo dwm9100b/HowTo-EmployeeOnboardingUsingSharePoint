@@ -1,3 +1,5 @@
+![Employee Onboarding PowerApp](https://1drv.ms/i/s!AstuPwM_SQP0haMZ8VqfMDG_H2gHTg?e=HakH6p)
+
 This Power App was created to allow someone to easily recreate a project. While videos are great, it is important for the one learning to be able to follow exact steps that only text can provide.
 
 This Particular app will show you the steps needed to recreate an Employee Onboarding system that was presented on Collab365.com by Kelly Edinger.
