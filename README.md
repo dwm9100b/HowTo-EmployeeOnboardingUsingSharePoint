@@ -1,4 +1,4 @@
-# Employee onboarding using SharePoint
+# How to - Employee onboarding using SharePoint
 
 ![EmployeeOnboardingApp](https://user-images.githubusercontent.com/2302848/238684922-141c0751-9d4c-41b1-ae47-794347836268.png)
 
