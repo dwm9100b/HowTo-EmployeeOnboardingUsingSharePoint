@@ -26,13 +26,13 @@ To use:
 2. Under the Releases section
 3. Click on the latest release
 4. You'll be taken to the release page
-5. Click on the **EmployeeOnboardingTutorial.zip** file
+5. Click on the **HowTo-EmployeeOnboarding.zip** file
 6. Download should start, note the download location
 7. From within your PowerApp studio
 8. Select Apps in the left nav
 9. From the top toolbar, select Import canvas app
 10. When asked, navigate to the download location
-11. Select the **EmployeeOnboardingTutorial.zip** file
+11. Select the **HowTo-EmployeeOnboarding.zip** file
 12. Then follow the prompts
 13. Once imported, publish and run the app
 
